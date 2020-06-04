@@ -1219,11 +1219,13 @@
             max = _.slideCount * 2;
         }
 
-        while (breakPoint < max) {
-            indexes.push(breakPoint);
-            breakPoint = counter + _.options.slidesToScroll;
-            counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
-        }
+        setInterval(function() {
+            if (breakPoint < max) {
+                indexes.push(breakPoint);
+                breakPoint = counter + _.options.slidesToScroll;
+                counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;    
+            }
+        }, 1);
 
         return indexes;
 
